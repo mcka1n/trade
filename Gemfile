@@ -18,6 +18,7 @@ end
 
 gem 'jquery-rails'
 gem 'haml-rails'
+gem 'mechanize'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
