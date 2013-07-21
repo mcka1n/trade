@@ -22,15 +22,34 @@
                     %h3
                       %strong
                         = product_seller.name
+                      %a{:href => product_seller.url, :class => 'btn btn-middle btn-success icon pull-right'}
+                        Buy it now!
                 .row
+                  .span1
+                    = raw @product.image
+                  .span3
+                    %h2.muted
+                      %strong
+                        = product_seller.base_price
+                    -if !product_seller.total_price.nil?
+                      %h2.muted
+                        %strong
+                          = product_seller.total_price
                   .span2
-                    = raw product_seller.image
+                    = raw product_seller.rating
+                  .span2
+                    Condition
+                    .muted
+                      = product_seller.condition
+                  .span1
+                    = product_seller.tax
                   .span6
                     %p
                       = raw product_seller.description
-                    %h2.muted
-                      %strong
-                        = product_seller.price
+                    
+
+                    
+
                 .row
                   .span8
                     %p

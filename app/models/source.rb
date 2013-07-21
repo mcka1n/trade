@@ -47,7 +47,7 @@ class Source
       description =  each_pslires.search("//div[@class='pslimain']//h3")[counter]
 
       if counter == 0
-        @product = Product.find_or_create_by(:gtin => gtin, :name => product_name)
+        @product = Product.find_or_create_by(:gtin => gtin, :name => product_name, :image => image)
       else
         @product = Product.find_or_create_by(:gtin => gtin)
       end

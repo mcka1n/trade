@@ -2,10 +2,11 @@ class Product
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  attr_accessible :gtin, :name, :description
+  attr_accessible :gtin, :name, :image, :description
 
   field :gtin, type: String
   field :name, type: String
+  field :image, type: String
   field :description, type: String
 
   has_many :product_sellers
