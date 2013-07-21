@@ -9,4 +9,6 @@ class ProductSeller
   field :price, type: String
   field :image, type: String
   field :description, type: String
+
+  belongs_to :product
 end
