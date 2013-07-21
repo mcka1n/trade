@@ -1,4 +1,12 @@
 %h1 Product Home
+
+
+= form_tag products_path, :method => :get do
+  = text_field_tag :search, params[:search]
+  = submit_tag "Search", :name => nil
+
 - if !@products[0].nil?
+  @products[0].gtin
 - else
   %h2 There are no products :(
+
