@@ -93,7 +93,9 @@ class Source
             base_price = each_root_table_tr.search("//tr//td[@class='price-col']//span")[counter_two].content
           end
 
-          @product_seller = ProductSeller.find_or_create_by(:product_id => @product._id, :name => seller_name, :rating => seller_rating, :condition => product_condition, :tax => product_tax, :base_price => base_price, :total_price => total_price, :url => url)  
+          if !seller_name.include? "+ Show"
+            @product_seller = ProductSeller.find_or_create_by(:product_id => @product._id, :name => seller_name, :rating => seller_rating, :condition => product_condition, :tax => product_tax, :base_price => base_price, :total_price => total_price, :url => url)  
+          end
         end
         counter_two = counter_two + 1
       end
