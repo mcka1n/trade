@@ -13,6 +13,10 @@ class Source
     price = price.gsub("</b>", "")
   end
 
+  def self.url_cleaner(url_param)
+    url = url_param.to_s.gsub("/url?q=","")
+  end
+
   def self.get_data(gtin)
     agent = Mechanize.new
     counter = 0
@@ -75,6 +79,7 @@ class Source
 
           if !each_root_table_tr.search("//tr//td[@class='seller-col']//span//a")[counter_two].nil?
             url = each_root_table_tr.search("//tr//td[@class='seller-col']//span//a")[counter_two].attributes['href']
+            url = url_cleaner(url)
           end
 
           if !each_root_table_tr.search("//tr//td[@class='condition-col']//span")[counter_two].nil?
