@@ -1,0 +1,35 @@
+@import "bootswatch/cerulean/variables";
+@import "bootstrap";
+@import "bootstrap-responsive";
+@import "bootswatch/cerulean/bootswatch";
+@import "font-awesome";
+
+body{
+  @media (min-width: 980px) {
+    padding-top:60px;
+  }
+}
+
+/*[class^="icon-"], [class*=" icon-"]{
+}
+
+.label-info, .badge-info{
+background-color: #3399f3;
+}
+.label-success, .badge-success{
+background-color: #3cb521;
+}
+.label-important, .badge-important{
+background-color: #cd0200;
+}
+.label-inverse, .badge-inverse {
+background-color: #434848;
+}
+
+.label a{
+color:$white;
+}
+
+#footer{
+margin-bottom:50px;
+}*/
