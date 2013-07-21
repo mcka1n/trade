@@ -69,8 +69,10 @@ class Source
             seller_name = each_root_table_tr.search("//tr//td[@class='seller-col']//span")[counter_two].content
           end
 
-          seller_rating = each_root_table_tr.search("//tr//td[@class='rating-col']")[counter_two]
-          
+          if !each_root_table_tr.search("//tr//td[@class='rating-col']//a[@class='a']")[counter_two].nil?
+            seller_rating = each_root_table_tr.search("//tr//td[@class='rating-col']//a[@class='a']")[counter_two].text
+          end
+
           if !each_root_table_tr.search("//tr//td[@class='seller-col']//span//a")[counter_two].nil?
             url = each_root_table_tr.search("//tr//td[@class='seller-col']//span//a")[counter_two].attributes['href']
           end
