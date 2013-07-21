@@ -12,7 +12,12 @@ class Product
 
   def self.search(search)
     if search
-      Product.all.where gtin: /#{search}/i
+      @products = Product.all.where gtin: /#{search}/i
+      if @products[0].nil?
+        Source.get_data(search)
+      else
+        @products
+      end
     else
       Product.all
     end
