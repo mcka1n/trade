@@ -30,7 +30,6 @@ class Source
 
       counter = counter + 1
     end
-
   end
   
 end

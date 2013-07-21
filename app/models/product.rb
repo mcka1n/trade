@@ -15,6 +15,7 @@ class Product
       @products = Product.all.where gtin: /#{search}/i
       if @products[0].nil?
         Source.get_data(search)
+        search(search)  #hack
       else
         @products
       end
