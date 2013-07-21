@@ -1,16 +1,20 @@
 .row
   .span8
     %h1 GTIN
-    %h2 
+    %h2
+    = @product.name
+    %h3 
     = @product.gtin
     %br
       %hr
         %h4
           Product Sellers
         - @product.product_sellers.each do |product_seller|
+          %h5
+          = product_seller.name
           = raw product_seller.description
           = raw product_seller.image
-          = raw product_seller.price
+          = product_seller.price
 
 
 
