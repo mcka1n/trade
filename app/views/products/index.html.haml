@@ -1,27 +1,29 @@
-%h1.muted Products Home
+.row
+  .span8{style: "float: none; margin: 0 auto;"}
 
+    %h1.muted Products Home
 
-= form_tag products_path, :method => :get do
-  = text_field_tag :search, params[:search]
-  = submit_tag "Search", :name => nil
+    = form_tag products_path, :method => :get do
+      = text_field_tag :search, params[:search], placeholder: 'Search GTIN', class: 'span4'
+      = submit_tag "Go", :name => nil, class: 'btn btn-success icon', style: 'vertical-align: top'
 
-- if !@products[0].nil?
-  %ul.thumbnails.unstyled
-  - @products.each do |product|
+    - if !@products[0].nil?
+      %ul.thumbnails.unstyled
+      - @products.each do |product|
 
-    %li.span7.clearfix
-      #gtin
-        %h3
-          %b GTIN:
-          = product.gtin
-      .thumbnail.clearfix
-        #picture.pull-left.span2.clearfix{style: "margin-right:10px"}
-          = raw product.product_sellers[0].image
-        #data
-          = link_to "Select", product_path(product), class: 'btn btn-primary icon pull-right'
-          %h3
-            = link_to product.name, product_path(product)
+        %li.span7.clearfix
+          #gtin
+            %h3
+              %b GTIN:
+              = product.gtin
+          .thumbnail.clearfix
+            #picture.pull-left.span2.clearfix{style: "margin-right:10px"}
+              = raw product.product_sellers[0].image
+            #data
+              = link_to "Select", product_path(product), class: 'btn btn-primary icon pull-right'
+              %h3
+                = link_to product.name, product_path(product)
 
-- else
-  %h2 There are no products :(
+    - else
+      %h2 There are no products :(
 
