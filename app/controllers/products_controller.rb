@@ -4,4 +4,8 @@ class ProductsController < ApplicationController
     @products = Product.search(params[:search])
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
 end

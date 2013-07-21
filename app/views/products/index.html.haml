@@ -6,7 +6,20 @@
   = submit_tag "Search", :name => nil
 
 - if !@products[0].nil?
-  @products[0].gtin
+  - @products.each do |product|
+    = product.gtin
+
+    %ul.inline
+      %li
+        .row-price
+          %h3
+            = product.gtin
+            %h3/
+      %li
+        .row-title
+          %h3= link_to product.name, product_path(product)
+
+
 - else
   %h2 There are no products :(
 

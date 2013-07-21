@@ -1,0 +1,17 @@
+.row
+  .span8
+    %h1= @product.gtin
+    = @product.name
+    %br
+      %b Media:
+      = @product.product_sellers
+      %hr
+        %h4
+          Product Sellers
+        - @product.product_sellers.each do |product_seller|
+          = raw product_seller.image
+          = raw product_seller.price
+          = raw product_seller.description
+
+
+
