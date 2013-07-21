@@ -1,21 +1,52 @@
 .row
-  .span8
-    %h1 GTIN
-    %h2
-    = @product.name
-    %h3 
-    = @product.gtin
+  .span8{style: "float: none; margin: 0 auto;"}
+    %h1
+      = @product.name
+    %h2 
+      = @product.gtin
+    %br
+      = link_to root_path(), class: 'btn btn-large btn-primary icon pull-left' do
+        %i.icon-chevron-left 
+        Go back home
     %br
       %hr
-        %h4
+        %h2
           Product Sellers
         - @product.product_sellers.each do |product_seller|
-          %h5
-          = product_seller.name
-          = raw product_seller.description
-          = raw product_seller.image
-          = product_seller.price
+        
+          .row
+            .span8{style: "float: none; margin: 0 auto;"}
+              .well
+                .row
+                  .span8
+                    %h3
+                      %strong
+                        = product_seller.name
+                .row
+                  .span2
+                    = raw product_seller.image
+                  .span6
+                    %p
+                      = raw product_seller.description
+                    %h2.muted
+                      %strong
+                        = product_seller.price
+                .row
+                  .span8
+                    %p
+                    %p
+                      %i.icon-user
+                      by
+                      %a{:href => "#"} mcka1n
+                      |
+                      %i.icon-calendar
+                      = product_seller.updated_at
+                      |
+                      %i.icon-tags
+                      Tags :
+                      %a{:href => "#"}
+                        %span.label.label-info
+                          = @product.gtin                     
+          
 
-
-
-
+  
