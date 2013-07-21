@@ -6,19 +6,21 @@
   = submit_tag "Search", :name => nil
 
 - if !@products[0].nil?
+  %ul.thumbnails.unstyled
   - @products.each do |product|
-    = product.gtin
 
-    %ul.inline
-      %li
-        .row-price
+    %li.span7.clearfix
+      #gtin
+        %h3
+          %b GTIN:
+          = product.gtin
+      .thumbnail.clearfix
+        #picture.pull-left.span2.clearfix{style: "margin-right:10px"}
+          = raw product.product_sellers[0].image
+        #data
+          = link_to "Select", product_path(product), class: 'btn btn-primary icon pull-right'
           %h3
-            = product.gtin
-            %h3/
-      %li
-        .row-title
-          %h3= link_to product.name, product_path(product)
-
+            = link_to product.name, product_path(product)
 
 - else
   %h2 There are no products :(
